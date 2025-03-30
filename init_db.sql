@@ -1,0 +1,73 @@
+IF DB_ID('SHE') IS NULL
+    CREATE DATABASE SHE;
+GO
+
+USE SHE;
+GO
+
+-- Eliminar tablas si existen
+DROP TABLE IF EXISTS RESPUESTAS;
+DROP TABLE IF EXISTS PREGUNTAS;
+DROP TABLE IF EXISTS ENCUESTA;
+DROP TABLE IF EXISTS DEPARTAMENTO;
+DROP TABLE IF EXISTS PROFESORES;
+DROP TABLE IF EXISTS ESTUDIANTES;
+GO
+
+-- Tabla ESTUDIANTES
+CREATE TABLE ESTUDIANTES (
+  matricula VARCHAR(10) PRIMARY KEY,
+  nombre1 VARCHAR(20),
+  nombre2 VARCHAR(20),
+  apellido1 VARCHAR(20),
+  apellido2 VARCHAR(20),
+  correoInst VARCHAR(50)
+);
+GO
+
+-- Tabla PROFESORES
+CREATE TABLE PROFESORES (
+  matricula VARCHAR(10) PRIMARY KEY,
+  nombre1 VARCHAR(20),
+  nombre2 VARCHAR(20),
+  apellido1 VARCHAR(20),
+  apellido2 VARCHAR(20),
+  correoInst VARCHAR(50),
+  departamento INT
+);
+GO
+
+-- Tabla DEPARTAMENTO
+CREATE TABLE DEPARTAMENTO (
+  idDepartamento INT PRIMARY KEY,
+  nombreDepartamento VARCHAR(100),
+  coordinador VARCHAR(10)
+);
+GO
+
+-- Tabla ENCUESTA
+CREATE TABLE ENCUESTA (
+  idEncuesta INT PRIMARY KEY IDENTITY(1,1),
+  materia INT,
+  profesor VARCHAR(10),
+  categoria VARCHAR(50)
+);
+GO
+
+-- Tabla PREGUNTAS
+CREATE TABLE PREGUNTAS (
+  idEncuesta INT,
+  pregunta VARCHAR(500),
+  numPregunta INT
+);
+GO
+
+-- Tabla RESPUESTAS
+CREATE TABLE RESPUESTAS (
+  idEncuesta INT,
+  numPregunta INT,
+  calificacion INT,
+  comentarios VARCHAR(1000),
+  estudiante VARCHAR(10)
+);
+GO
