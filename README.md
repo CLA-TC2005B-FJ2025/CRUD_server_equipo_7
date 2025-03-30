@@ -2,7 +2,7 @@
 
 -- Este proyecto implementa un servidor CRUD utilizando Node.js y SQL Server. A continuación, se detallan los pasos para configurar y ejecutar el servidor, tanto en Codespaces como en Docker.
 
-# Configuración en Codespaces
+## Configuración en Codespaces
 
 1. Crear la base de datos y las tablas:
 
