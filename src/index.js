@@ -37,6 +37,19 @@ app.use('/api/preguntas', preguntasRoutes);
 const respuestasRoutes = require('./routes/respuestas');
 app.use('/api/respuestas', respuestasRoutes);
 
+const materiasRoutes = require('./routes/materias');
+app.use('/api/materias', materiasRoutes);
+
+const gruposRoutes = require('./routes/grupos');
+app.use('/api/grupos', gruposRoutes);
+
+// tablas intermedias
+const departamentoProfesoresRoutes = require('./routes/departamento_profesores');
+app.use('/api/departamento-profesores', departamentoProfesoresRoutes);
+
+const materiasCompuestasRoutes = require('./routes/materias_compuestas');
+app.use('/api/materias-compuestas', materiasCompuestasRoutes);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
